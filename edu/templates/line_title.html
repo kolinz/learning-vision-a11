@@ -23,10 +23,12 @@
       <!-- ログイン中のボタン -->
           <a href="{% url 'edu:post_job' %}" 
               class="btn btn-primary my-2">職種別学習情報の登録</a>
+          <a href="/m" 
+                class="btn btn-info my-3">一覧に戻る</a>
           {% else %}
         <!-- ログイン状態ではないときのボタン -->
           <a href="/m" 
-                class="btn btn-info my-3">職種別学習情報</a>
+                class="btn btn-info my-3">一覧に戻る</a>
         {% endif %}
       </div>    
     </div>
