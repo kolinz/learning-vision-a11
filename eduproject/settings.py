@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     # django cleanup
     'django_cleanup',
     # django storages
-    'storages',
+    # 'storages',
     # django import export
-    'import_export',
+    # 'import_export',
 ]
 
 MIDDLEWARE = [
