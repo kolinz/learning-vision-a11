@@ -12,12 +12,22 @@
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <!-- カテゴリのタイトルと概要を表示 -->
+      <!-- 業界のタイトルと概要を表示 -->
         {% for record in object_list|slice:":1" %}
-        <p class="lead">{{ record.line.title }}</p>
-        <p>{{ record.line.summary }}</p>
+            <p class="lead">{{ record.line.title }}</p>
+            <p>{{ record.line.summary }}</p>
         {% endfor %}
-      
+      <!-- 関連業界をすべて表示 -->
+        <p class="lead">関連業界</p>
+        <div style='clear: both;'>
+            {% for record in object_list|slice:":1" %}
+                {% for line in record.line.relation.all %}
+                    <button class="btn btn-outline-primary" onclick="location.href='/line/{{ line.id }}'">
+                    {{ line.title }}
+                    </button>
+                {% endfor %}
+            {% endfor %}
+        </div>
       <!-- ナビゲーションボタン -->
         {% if user.is_authenticated  %}
       <!-- ログイン中のボタン -->
